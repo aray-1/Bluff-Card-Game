@@ -1,0 +1,275 @@
+.app-container{
+    --resize-7px : max(3px, calc(var(--size-factor) * 7px));
+    --resize-10px : max(4px, calc(var(--size-factor) * 10px));
+    --resize-12px : max(6px, calc(var(--size-factor) * 12px));
+    --resize-15px : max(8px, calc(var(--size-factor) * 15px));
+    --resize-17px : max(10px, calc(var(--size-factor) * 17px));
+    --resize-20px : max(10px, calc(var(--size-factor) * 20px));
+    --resize-25px : max(15px, calc(var(--size-factor) * 25px));
+    --resize-30px : max(18px, calc(var(--size-factor) * 30px));
+    --resize-40px : max(20px, calc(var(--size-factor) * 40px));
+    --resize-50px : max(25px, calc(var(--size-factor) * 50px));
+    --resize-80px : max(35px, calc(var(--size-factor) * 80px));
+    --resize-100px : max(50px, calc(var(--size-factor) * 100px));
+    --resize-125px : max(60px, calc(var(--size-factor) * 125px));
+    --resize-150px : max(70px, calc(var(--size-factor) * 150px));
+    --resize-180px : max(80px, calc(var(--size-factor) * 180px));
+    --resize-200px : max(90px, calc(var(--size-factor) * 200px));
+    --resize-250px : max(125px, calc(var(--size-factor) * 250px));
+    --resize-300px : max(150px, calc(var(--size-factor) * 300px));
+    --resize-350px : max(200px, calc(var(--size-factor) * 350px));
+    --resize-400px : max(250px, calc(var(--size-factor) * 400px));
+    --resize-0-9rem : max(0.6rem, calc(var(--size-factor) * 0.9rem));
+    --resize-1rem : max(0.7rem, calc(var(--size-factor) * 1rem));
+    --resize-1-1rem : max(0.8rem, calc(var(--size-factor) * 1.1rem));
+    --resize-1-2rem : max(0.9rem, calc(var(--size-factor) * 1.2rem));
+    --resize-1-3rem : max(1rem, calc(var(--size-factor) * 1.3rem));
+    --resize-1-4rem : max(1rem, calc(var(--size-factor) * 1.4rem));
+    --resize-1-5rem : max(1rem, calc(var(--size-factor) * 1.5rem));
+    --resize-1-6rem : max(1.1rem, calc(var(--size-factor) * 1.6rem));
+    --resize-1-7rem : max(1.1rem, calc(var(--size-factor) * 1.7rem));
+    --resize-1-8rem : max(1.2rem, calc(var(--size-factor) * 1.8rem));
+    --resize-2rem : max(1.3rem, calc(var(--size-factor) * 2rem));
+    --resize-2-5rem : max(1.4rem, calc(var(--size-factor) * 2.5rem));
+    --resize-3rem : max(2rem, calc(var(--size-factor) * 3rem));
+    --resize-3-2rem : max(2.3rem, calc(var(--size-factor) * 3.2rem));
+    --resize-3-5rem : max(2.5rem, calc(var(--size-factor) * 3.5rem));
+    --resize-5rem : max(3.5rem, calc(var(--size-factor) * 5rem));
+    --resize-5-3rem : max(3.5rem, calc(var(--size-factor) * 5.3rem));
+    --resize-6-4rem : max(4.5rem, calc(var(--size-factor) * 6.4rem));
+
+    --card-width: calc(var(--size-factor) * 127px);
+    --card-height: calc(var(--size-factor) * 178px);
+}
+
+/* Animations Start */
+
+@keyframes mobile-rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    90%{
+        transform: rotate(90deg);
+    }
+    100%{
+        transform: rotate(90deg);
+    }
+}
+
+/* Animations End */
+
+/* Utility Classes Start */
+
+.popup-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+.popup-overlay{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+.popup-close-btn{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: var(--resize-2-5rem);
+    height: var(--resize-2-5rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--resize-2rem);
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid grey;
+    user-select: none;
+    cursor: pointer;
+    transform: translate(50%, -50%);
+    transition: box-shadow 0.05s ease;
+}
+.popup-close-btn:hover{
+    color: white;
+    background-color: #ff004c;
+    box-shadow: 0px 0px 4px 2px rgb(0, 140, 255);
+}
+
+.display-none{
+    display: none;
+}
+
+/* Utility Classes End */
+
+/* Message Box Start */
+
+.message-box-container-hide,
+.message-box-container-display{
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    width: max-content;
+    max-width: min(450px, calc(100vw - 20px));
+    padding: 15px 20px;
+    font-size: 1.5rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: rgba(231, 60, 122, 0.8);
+    color: white;
+    backdrop-filter: blur(40px);
+    box-shadow: 0px 0px 25px 3px rgb(255, 255, 255);
+    transform-origin: bottom;
+    border-radius: 10px;
+    z-index: 100;
+}
+.message-box-container-hide{
+    transform: translate(-50%, 10px) scaleX(0.7) scaleY(0.5);
+    opacity: 0;
+    transition: transform 0.3s ease-in,
+                opacity 0.3s ease;
+}
+.message-box-container-display{
+    transform: translate(-50%, 0px) scale(1);
+    opacity: 1;
+    transition: transform 0.3s ease-out,
+                opacity 0.3s ease;
+}
+
+/* Message Box End */
+
+/* Center Message Box Start */
+
+.message-box-center-container{
+    width : 35vw;
+    height: 35%;
+    padding: var(--resize-25px);
+    border-radius: var(--resize-10px);
+    box-shadow: 0px 0px var(--resize-7px) var(--resize-10px) inset rgb(51, 42, 42);
+    background-color: rgb(77, 77, 77);
+}
+.message-center{
+    width: 100%;
+    height: 100%;
+    font-size: var(--resize-2rem);
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: var(--resize-7px);
+    color: rgb(181, 181, 181);
+    background-image: url("../public/Images/backgrounds/slate-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px var(--resize-10px) 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Center Message Box End */
+
+/* Rotate Device Start */
+
+.rotate-device-container{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 100;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-color);
+}
+.mobile-frame{
+    width: var(--resize-200px);
+    height: var(--resize-300px);
+    border-radius: var(--resize-15px);
+    box-shadow: 0px 0px 0px var(--resize-7px) inset var(--frame-color);
+    position: relative;
+    background-color: rgb(103, 144, 255);
+}
+.mobile-top{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: var(--resize-25px);
+    border-radius: 0px 0px var(--resize-15px) var(--resize-15px);
+    background-color: var(--frame-color);
+}
+.mobile-top > div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.mobile-speaker{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    height: 5px;
+    border-radius: 3px;
+    background-color: rgb(42, 42, 42);
+}
+.mobile-side-buttons{
+    position: absolute;
+    left: -4px;
+    top: 10%;
+    width: 4px;
+}
+.mobile-side-btn-1,
+.mobile-side-btn-2{
+    position: relative;
+    width: 100%;
+    border-radius: 3px 0px 0px 3px;
+    background-color: var(--frame-color);
+}
+.mobile-side-btn-1{
+    height: var(--resize-50px);
+    margin-bottom: var(--resize-15px);
+}
+.mobile-side-btn-2{
+    height: var(--resize-40px);
+}
+
+.mobiles{
+    position: relative;
+    height: var(--resize-300px);
+    width: calc(var(--resize-200px) + var(--resize-300px));
+}
+.mobile-1{
+    --frame-color: rgb(223, 223, 223);
+
+    position: absolute;
+}
+.mobile-2{
+    --frame-color: white;
+
+    animation-name: mobile-rotate;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    position: absolute;
+
+    transform-origin: bottom right;
+}
+.rotate-device-message{
+    font-size: var(--resize-3rem);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: white;
+    text-shadow: -5px 5px var(--resize-15px) rgba(0, 0, 0, 0.8);
+    user-select: none;
+}
+
+/* Rotate Device End */
